@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        <%= exercise.name %>
+    </title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <a href="javascript:history.back()">
+            ← Back to Results
+        </a>
+
+
+        <h1>
+            <%= exercise.name %>
+        </h1>
+
+
+        <div class="exercise-details">
+
+            <p>
+                <strong>Difficulty:</strong>
+                <%= exercise.difficultyLevel %>
+            </p>
+
+            <p>
+                <strong>Category:</strong>
+                <%= exercise.category %>
+            </p>
+
+            <p>
+                <strong>Type:</strong>
+                <%= exercise.type %>
+            </p>
+
+            <p>
+                <strong>Force:</strong>
+                <%= exercise.forceType %>
+            </p>
+
+            <p>
+                <strong>Mechanics:</strong>
+                <%= exercise.mechanics %>
+            </p>
+
+        </div>
+
+
+        <h2>Muscle Groups</h2>
+
+        <ul>
+
+            <% exercise.muscleGroups.forEach(muscle=> { %>
+
+                <li>
+                    <%= muscle.name %>
+                        (<%= muscle.type %>)
+                </li>
+
+                <% }) %>
+
+        </ul>
+
+
+        <h2>Equipment</h2>
+
+        <ul>
+
+            <% exercise.equipment.forEach(item=> { %>
+
+                <li>
+                    <%= item.name %>
+                </li>
+
+                <% }) %>
+
+        </ul>
+
+
+        <h2>Instructions</h2>
+
+        <ol>
+
+            <% exercise.instructions.forEach(instruction=> { %>
+
+                <li>
+                    <%= instruction %>
+                </li>
+
+                <% }) %>
+
+        </ol>
+
+    </div>
+
+</body>
+
+</html>

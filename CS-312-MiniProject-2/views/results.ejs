@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exercise Results</title>
+
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Exercise Results</h1>
+
+        <a href="/">← Search Again</a>
+
+
+        <% if (error) { %>
+
+            <p class="error">
+                <%= error %>
+            </p>
+
+            <% } else if (exercises.length===0) { %>
+
+                <p>No exercises were found.</p>
+
+                <% } else { %>
+
+                    <div class="exercise-grid">
+
+                        <% exercises.forEach(exercise=> { %>
+
+                            <div class="exercise-card">
+
+                                <h2>
+                                    <%= exercise.name %>
+                                </h2>
+
+                                <p>
+                                    <strong>Difficulty:</strong>
+                                    <%= exercise.difficultyLevel %>
+                                </p>
+
+                                <p>
+                                    <strong>Category:</strong>
+                                    <%= exercise.category %>
+                                </p>
+
+                                <p>
+                                    <strong>Type:</strong>
+                                    <%= exercise.type %>
+                                </p>
+
+                                <a href="/exercise/<%= exercise.id %>" class="view-button">
+                                    View Exercise
+                                </a>
+
+                            </div>
+
+                            <% }) %>
+
+                    </div>
+
+                    <% } %>
+
+    </div>
+
+</body>
+
+</html>
